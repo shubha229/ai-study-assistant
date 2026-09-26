@@ -1029,71 +1029,19 @@ Demo Video: [ADD YOUR VIDEO LINK]
 Add screenshots of the main application here after capturing them.
 
 ### Landing Page
-
-```text
-[ADD SCREENSHOT]
-```
+<img width="1915" height="906" alt="Screenshot 2026-09-26 151931" src="https://github.com/user-attachments/assets/7099f109-27cb-46dc-8988-1cb6c22bf0f1" />
 
 ### Generated Study Set
-
-```text
-[ADD SCREENSHOT]
-```
+<img width="1916" height="918" alt="Screenshot 2026-09-26 152109" src="https://github.com/user-attachments/assets/514bae8a-9401-4840-9987-14cf42cb071d" />
 
 ### Flashcards
-
-```text
-[ADD SCREENSHOT]
-```
+<img width="1917" height="903" alt="Screenshot 2026-09-26 152138" src="https://github.com/user-attachments/assets/a64015a8-65b5-4625-9b66-65264efa937f" />
 
 ### Quiz
-
-```text
-[ADD SCREENSHOT]
-```
+<img width="1906" height="898" alt="Screenshot 2026-09-26 152158" src="https://github.com/user-attachments/assets/c2fdf77b-72ab-4148-ac8c-7400eb2da730" />
 
 ### Error State
-
-```text
-[ADD SCREENSHOT]
-```
-
----
-
-# ⏱️ Development Time
-
-Approximate development time:
-
-```text
-[ADD YOUR ACTUAL TIME]
-```
-
----
-
-# 📋 Assignment Requirement Coverage
-
-| Requirement | Implementation |
-|---|---|
-| React application | React + Vite |
-| Free-form text input | `PromptInput.jsx` |
-| Real LLM API | Google Gemini API |
-| Backend API | Express.js |
-| API key security | Gemini key stored on backend |
-| Structured AI output | Gemini response schema |
-| Flashcards | `Flashcard.jsx` / `FlashcardDeck.jsx` |
-| Quiz | `Quiz.jsx` |
-| Wrong-answer retry | Quiz retry functionality |
-| Loading state | `LoadingState.jsx` |
-| Error state | `ErrorState.jsx` |
-| Malformed JSON handling | `JSON.parse()` error handling |
-| Wrong-shape handling | Backend + frontend validation |
-| Empty response handling | Response/data checks |
-| Slow request handling | `AbortController` timeout |
-| Failed request handling | Error state + retry |
-| Stale response handling | Request ID with `useRef` |
-| Responsive UI | CSS responsive design |
-| AI usage disclosure | README AI Usage section |
-| Original implementation | Custom React + Express implementation |
+<img width="1913" height="905" alt="Screenshot 2026-09-26 152259" src="https://github.com/user-attachments/assets/17c33675-d403-40a5-a3b1-df9aae9587e0" />
 
 ---
 
