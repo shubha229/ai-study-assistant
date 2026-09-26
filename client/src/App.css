@@ -1,0 +1,1123 @@
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 55px 25px 100px;
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   FLOATING BACKGROUND SHAPES
+===================================================== */
+
+.app::before {
+  content: "";
+  position: fixed;
+  width: 380px;
+  height: 380px;
+  top: -120px;
+  left: -150px;
+  border-radius: 50%;
+  background: #c4b5fd;
+  filter: blur(90px);
+  opacity: 0.45;
+  z-index: -2;
+  animation: floatOne 8s ease-in-out infinite alternate;
+}
+
+.app::after {
+  content: "";
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  right: -100px;
+  bottom: -80px;
+  border-radius: 50%;
+  background: #fdbaaa;
+  filter: blur(90px);
+  opacity: 0.5;
+  z-index: -2;
+  animation: floatTwo 10s ease-in-out infinite alternate;
+}
+
+@keyframes floatOne {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(70px, 50px);
+  }
+}
+
+@keyframes floatTwo {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-60px, -40px);
+  }
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  max-width: 850px;
+  margin: 0 auto 50px;
+  text-align: center;
+  animation: heroEnter 0.7s ease both;
+}
+
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding: 8px 14px;
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.65);
+  color: #7c3aed;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.08);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0 auto;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 7vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -4px;
+  font-weight: 700;
+  background: linear-gradient(
+    110deg,
+    #17151c 15%,
+    #6d28d9 48%,
+    #db5b43 85%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  max-width: 650px;
+  margin: 24px auto 0;
+  color: #716d78;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   PROMPT CARD
+===================================================== */
+
+.prompt-form {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 30px 80px rgba(58, 42, 74, 0.13),
+    0 4px 15px rgba(58, 42, 74, 0.05);
+  backdrop-filter: blur(25px);
+  animation: cardEnter 0.8s 0.1s ease both;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.prompt-form textarea {
+  display: block;
+  width: 100%;
+  min-height: 270px;
+  padding: 25px;
+  resize: vertical;
+  outline: none;
+  border: 1px solid #eeeaf2;
+  border-radius: 20px;
+  background: #faf9fb;
+  color: #201d25;
+  font-size: 16px;
+  line-height: 1.7;
+  transition:
+    border 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.prompt-form textarea::placeholder {
+  color: #aaa5b0;
+}
+
+.prompt-form textarea:focus {
+  background: #ffffff;
+  border-color: #b79af4;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.08);
+}
+
+
+/* =====================================================
+   PROMPT FOOTER
+===================================================== */
+
+.prompt-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8px 4px;
+}
+
+.prompt-footer span {
+  color: #a19ba8;
+  font-size: 13px;
+}
+
+.prompt-footer button {
+  position: relative;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #9333ea
+  );
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.prompt-footer button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.35);
+}
+
+.prompt-footer button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.prompt-footer button:disabled {
+  background: #ddd9df;
+  color: #aaa5ae;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   STUDY DASHBOARD
+===================================================== */
+
+.dashboard {
+  animation: dashboardEnter 0.5s ease both;
+}
+
+@keyframes dashboardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =====================================================
+   NEW STUDY BUTTON
+===================================================== */
+
+.new-study-button {
+  margin-bottom: 28px;
+  padding: 10px 15px;
+  border: 1px solid #ddd7e2;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #716d78;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.new-study-button:hover {
+  border-color: #a78bfa;
+  color: #6d28d9;
+  background: white;
+}
+
+
+/* =====================================================
+   STUDY HEADER
+===================================================== */
+
+.study-header {
+  position: relative;
+  margin-bottom: 55px;
+  padding: 42px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(
+    120deg,
+    #221a35,
+    #38235c 60%,
+    #4a2830
+  );
+  color: white;
+  box-shadow: 0 25px 70px rgba(67, 42, 92, 0.2);
+}
+
+.study-header::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  top: -130px;
+  right: -50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  filter: blur(10px);
+}
+
+.study-header::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: 100px;
+  bottom: -120px;
+  border-radius: 50%;
+  background: rgba(255, 157, 125, 0.2);
+  filter: blur(30px);
+}
+
+.study-header .section-label {
+  position: relative;
+  color: #c4b5fd;
+  z-index: 1;
+}
+
+.study-header h1 {
+  position: relative;
+  margin: 12px 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  z-index: 1;
+}
+
+.study-header p {
+  position: relative;
+  max-width: 760px;
+  margin: 0;
+  color: #d6cfe1;
+  font-size: 16px;
+  line-height: 1.7;
+  z-index: 1;
+}
+
+
+/* =====================================================
+   SECTION LABELS
+===================================================== */
+
+.section-label {
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   SECTION HEADINGS
+===================================================== */
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin: 7px 0 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: #211e26;
+  font-size: 28px;
+  letter-spacing: -1px;
+}
+
+.count {
+  color: #9a95a0;
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   FLASHCARDS
+===================================================== */
+
+.flashcard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.flashcard {
+  height: 260px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition:
+    transform 0.65s
+    cubic-bezier(0.2, 0.75, 0.25, 1);
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  inset: 0;
+  padding: 32px;
+  border-radius: 22px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.flashcard-front {
+  background: #ffffff;
+  border: 1px solid #ebe7ef;
+  color: #201d25;
+  box-shadow: 0 15px 45px rgba(55, 40, 65, 0.08);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.flashcard:hover .flashcard-front {
+  box-shadow: 0 22px 55px rgba(55, 40, 65, 0.14);
+  transform: translateY(-3px);
+}
+
+.flashcard-front::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -35px;
+  top: -35px;
+  border-radius: 50%;
+  background: #ede9fe;
+}
+
+.flashcard-back {
+  background: linear-gradient(
+    135deg,
+    #957cbd,
+    #a1d1f4
+  );
+  color: white;
+  transform: rotateY(180deg);
+  box-shadow: 0 20px 50px rgba(109, 40, 217, 0.25);
+}
+
+.card-label {
+  position: relative;
+  margin-bottom: 16px;
+  color: #a194c2;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+
+.flashcard-back .card-label {
+  color: #ddd6fe;
+}
+
+.flashcard h3 {
+  position: relative;
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  z-index: 1;
+}
+
+.flashcard-back p {
+  position: relative;
+  margin: 0;
+  color: #f3eefe;
+  font-size: 17px;
+  line-height: 1.65;
+  z-index: 1;
+}
+
+.flashcard-front > p:last-child,
+.flashcard-back > p:last-child {
+  position: relative;
+  margin-top: auto;
+  color: #a7a1ac;
+  font-size: 11px;
+  z-index: 1;
+}
+
+.flashcard-back > p:last-child {
+  color: #d8c9f5;
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+.quiz-section {
+  margin-top: 60px;
+  padding-bottom: 70px;
+}
+
+.quiz-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 34px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ebe7ef;
+  box-shadow: 0 20px 55px rgba(55, 40, 65, 0.08);
+  backdrop-filter: blur(15px);
+}
+
+.quiz-card h3 {
+  margin: 0 0 26px;
+  color: #211e26;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   QUIZ OPTIONS
+===================================================== */
+
+.options {
+  display: grid;
+  gap: 11px;
+}
+
+.option {
+  width: 100%;
+  padding: 16px 18px;
+  text-align: left;
+  border: 1px solid #e6e1ea;
+  border-radius: 13px;
+  background: #faf9fb;
+  color: #514d57;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    border 0.18s ease,
+    background 0.18s ease;
+}
+
+.option:hover:not(:disabled) {
+  transform: translateX(4px);
+  border-color: #a78bfa;
+  background: #f5f1ff;
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.option.correct {
+  border-color: #69a878;
+  background: #effaf1;
+  color: #27733a;
+}
+
+.option.incorrect {
+  border-color: #dc8b82;
+  background: #fff2f0;
+  color: #a13b30;
+}
+
+
+/* =====================================================
+   EXPLANATION
+===================================================== */
+
+.explanation {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-left: 4px solid #8b5cf6;
+  border-radius: 0 12px 12px 0;
+  background: #f6f2ff;
+  color: #625d69;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.explanation strong {
+  color: #6d28d9;
+}
+
+.explanation p {
+  margin: 6px 0 0;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.next-button,
+.retry-button {
+  margin-top: 22px;
+  padding: 12px 21px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #9333ea
+  );
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.next-button:hover,
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.3);
+}
+
+
+/* =====================================================
+   QUIZ RESULT
+===================================================== */
+
+.quiz-result {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 55px 30px;
+  border-radius: 26px;
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #f7f2ff
+  );
+  border: 1px solid #e9e0f4;
+  text-align: center;
+  box-shadow: 0 25px 65px rgba(55, 40, 65, 0.1);
+  animation: resultPop 0.5s ease both;
+}
+
+@keyframes resultPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.quiz-result h2 {
+  margin: 14px 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(42px, 6vw, 58px);
+  letter-spacing: -2px;
+  background: linear-gradient(
+    110deg,
+    #6d28d9,
+    #9333ea,
+    #db5b43
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.quiz-result p {
+  margin: 0;
+  color: #77717e;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status-card {
+  max-width: 680px;
+  margin: 45px auto;
+  padding: 55px 30px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #ebe7ef;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(55, 40, 65, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.status-card h2 {
+  margin: 20px 0 8px;
+  color: #27232d;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.status-card p {
+  color: #85808a;
+  font-size: 14px;
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto;
+  border: 3px solid #e7e0f0;
+  border-top-color: #8b5cf6;
+  border-right-color: #db5b43;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-card {
+  border-color: #f0d4d0;
+}
+
+.error-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff0ee;
+  color: #c84b3c;
+  font-weight: 800;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .app {
+    padding: 40px 15px 70px;
+  }
+
+  .hero {
+    margin-bottom: 35px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+    letter-spacing: -2px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .prompt-form {
+    padding: 7px;
+    border-radius: 21px;
+  }
+
+  .prompt-form textarea {
+    min-height: 220px;
+    padding: 19px;
+    font-size: 15px;
+  }
+
+  .prompt-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .prompt-footer button {
+    width: 100%;
+  }
+
+  .study-header {
+    padding: 30px 23px;
+  }
+
+  .study-header h1 {
+    font-size: 35px;
+  }
+
+  .flashcard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flashcard {
+    height: 240px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .quiz-card {
+    padding: 22px;
+  }
+
+  .quiz-card h3 {
+    font-size: 20px;
+  }
+
+  .quiz-result {
+    padding: 42px 22px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .app {
+    padding: 20px 14px 50px;
+    min-height: 100svh;
+  }
+
+  /* Landing page */
+  .hero {
+    margin-bottom: 22px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    padding: 7px 12px;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    max-width: 360px;
+    margin: 0 auto;
+    font-size: 34px;
+    line-height: 1.08;
+    letter-spacing: -1.8px;
+  }
+
+  .subtitle {
+    max-width: 360px;
+    margin: 14px auto 0;
+    padding: 0 8px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* Prompt */
+  .prompt-form {
+    padding: 10px;
+    border-radius: 24px;
+  }
+
+  .prompt-form textarea {
+    min-height: 190px;
+    padding: 18px;
+    font-size: 14px;
+    border-radius: 17px;
+  }
+
+  .prompt-footer {
+    padding: 10px 6px 4px;
+  }
+
+  .prompt-footer span {
+    font-size: 12px;
+  }
+
+  .prompt-footer button {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  /* New study button */
+  .new-study-button {
+    margin-bottom: 18px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* Study header */
+  .study-header {
+    margin-bottom: 30px;
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .study-header h1 {
+    font-size: 27px;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    word-break: break-word;
+  }
+
+  .study-header p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* Section heading */
+  .section-heading {
+    margin-bottom: 16px;
+    gap: 5px;
+  }
+
+  .section-heading h2 {
+    font-size: 20px;
+  }
+
+  .count {
+    font-size: 11px;
+  }
+
+  /* Flashcards */
+  .flashcard-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .flashcard {
+    width: 100%;
+    height: 200px;
+  }
+
+  .flashcard-front,
+  .flashcard-back {
+    padding: 20px;
+    border-radius: 17px;
+  }
+
+  .card-label {
+    margin-bottom: 10px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .flashcard h3 {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .flashcard-back p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .flashcard-front > p:last-child,
+  .flashcard-back > p:last-child {
+    font-size: 10px;
+  }
+
+  /* Quiz */
+  .quiz-section {
+    margin-top: 38px;
+    padding-bottom: 40px;
+  }
+
+  .quiz-card {
+    padding: 18px;
+    border-radius: 17px;
+  }
+
+  .quiz-card h3 {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .options {
+    gap: 9px;
+  }
+
+  .option {
+    padding: 13px 14px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .explanation {
+    margin-top: 16px;
+    padding: 14px 15px;
+    font-size: 13px;
+  }
+
+  .next-button,
+  .retry-button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px 16px;
+  }
+
+  /* Result */
+  .quiz-result {
+    margin: 30px auto;
+    padding: 38px 18px;
+    border-radius: 20px;
+  }
+
+  .quiz-result h2 {
+    font-size: 44px;
+  }
+
+  .quiz-result p {
+    font-size: 13px;
+  }
+
+  /* Loading / Error */
+  .status-card {
+    margin: 30px auto;
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+
+  .status-card h2 {
+    font-size: 21px;
+  }
+
+  .status-card p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+/* =====================================================
+   MOBILE LANDING PAGE - CENTER
+===================================================== */
+@media (max-width: 480px) {
+  .app:has(.hero) {
+    min-height: 100svh;
+    width: 100%;
+    padding: 20px 14px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+
+    /* Slightly above exact center */
+    transform: translateY(-20px);
+  }
+
+  .app:has(.hero) .hero {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  .app:has(.hero) > main {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
