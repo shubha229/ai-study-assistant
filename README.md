@@ -1016,8 +1016,9 @@ A short screen recording can demonstrate:
 8. Retrying incorrect answers
 9. Demonstrating the error/retry state
 
+Demo Video:
 ```text
-Demo Video: https://drive.google.com/file/d/1LQxXCtczp8InZGHFHFFcmicIzp8grqRM/view?usp=sharing
+https://drive.google.com/file/d/1LQxXCtczp8InZGHFHFFcmicIzp8grqRM/view?usp=sharing
 ```
 
 ---
